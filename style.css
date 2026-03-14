@@ -1,0 +1,49 @@
+:root { --primary-blue: #f39bff; --soft-blue: #eef7ff; --shadow: 0 10px 30px rgba(0,0,0,0.08); }
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Sarabun', sans-serif; }
+body { background-color: #f0f7ff; color: #2d3436; overflow-x: hidden; }
+
+/* Privacy Mask */
+#privacy-mask {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: white; z-index: 10000; display: none;
+    flex-direction: column; justify-content: center; align-items: center; cursor: pointer;
+}
+#privacy-mask h1 { color: #f0f0f0; font-size: 5rem; font-family: sans-serif; }
+#privacy-mask p { color: #f9f9f9; }
+
+.navbar { background: white; padding: 1rem 10%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
+.logo { font-size: 1.5rem; font-weight: bold; color: var(--primary-blue); }
+.nav-links { list-style: none; display: flex; gap: 15px; }
+.nav-links a { text-decoration: none; color: #2d3436; font-weight: 600; font-size: 0.9rem; }
+.panic-btn { background: #ff7675; color: white; border: none; padding: 8px 15px; border-radius: 8px; cursor: pointer; font-size: 0.8rem; font-weight: bold; }
+
+.container { max-width: 500px; margin: 40px auto; padding: 0 20px; }
+.page { display: none; }
+.page.active { display: block; animation: fadeInUp 0.5s ease; }
+
+.card { background: white; padding: 30px; border-radius: 20px; box-shadow: var(--shadow); text-align: center; }
+textarea, input { width: 100%; padding: 12px; border: 1px solid #eee; border-radius: 10px; margin-bottom: 10px; outline: none; }
+#user-pin { text-align: center; letter-spacing: 10px; font-size: 1.2rem; font-weight: bold; }
+
+.mood-options { display: flex; justify-content: center; gap: 20px; font-size: 2.5rem; margin: 15px 0; }
+.mood-icon { cursor: pointer; opacity: 0.4; transition: 0.3s; }
+.mood-icon.active { opacity: 1; transform: scale(1.2); }
+
+.btn { width: 100%; padding: 15px; border: none; border-radius: 10px; cursor: pointer; font-weight: bold; transition: 0.3s; }
+.btn-blue { background: var(--primary-blue); color: white; }
+.btn-sm { padding: 8px 15px; border: 1px solid var(--primary-blue); border-radius: 20px; background: white; color: var(--primary-blue); cursor: pointer; margin: 5px; }
+
+#chat-bubble { position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; border-radius: 50%; background: var(--primary-blue); color: white; display: flex; align-items: center; justify-content: center; font-size: 24px; cursor: pointer; z-index: 1000; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+#chat-window { position: fixed; bottom: 90px; right: 20px; width: 320px; height: 420px; background: white; border-radius: 15px; display: none; flex-direction: column; box-shadow: var(--shadow); z-index: 1000; border: 1px solid #eee; overflow: hidden; }
+.chat-header { background: var(--primary-blue); color: white; padding: 12px; display: flex; justify-content: space-between; font-weight: bold; }
+.chat-box { flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; }
+.msg { padding: 8px 12px; border-radius: 12px; max-width: 85%; font-size: 0.85rem; line-height: 1.4; }
+.msg.ai { background: var(--soft-blue); align-self: flex-start; }
+.msg.user { background: var(--primary-blue); color: white; align-self: flex-end; }
+
+.admin-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 2000; display: none; align-items: center; justify-content: center; backdrop-filter: blur(5px); }
+.admin-msg-box { height: 250px; overflow-y: auto; border: 1px solid #eee; padding: 10px; background: #fff; border-radius: 8px; margin: 10px 0; text-align: left; }
+
+.anon-id-box { background: var(--soft-blue); padding: 15px; border-radius: 12px; border: 2px dashed var(--primary-blue); font-size: 1.2rem; font-weight: bold; color: var(--primary-blue); margin: 15px 0; }
+
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
